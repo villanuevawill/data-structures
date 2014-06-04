@@ -3,26 +3,33 @@ var makeStack = function() {
   // but try not not reference your old code in writing the new style.
 
   var stack = {};
-  var stackMethods = {};
-  var length = 0;
-
-  stackMethods.push = function(){
-
-  };
-
-  stackMethods.pop = function(){
-
-  };
-
-  stackMethods.size = function(){
-
-  };
-  var extend = function(to, from){
-    for (var key in from){
-      to[key] = from[key];
-    }
-  };
+  stack.length = 0;
   extend(stack, stackMethods);
-
   return stack;
+};
+
+
+var stackMethods = {};
+
+stackMethods.push = function(value){
+  this[this.length] = value;
+  this.length++;
+};
+
+stackMethods.pop = function(){
+  if (this.length>0){
+    this.length--;
+    var temp = this[this.length];
+    delete this[this.length];
+    return temp;
+  }
+};
+
+stackMethods.size = function(){
+  return this.length;
+};
+var extend = function(to, from){
+  for (var key in from){
+    to[key] = from[key];
+  }
 };
