@@ -24,6 +24,3 @@ var stackMethods = {
     return this._length;
   },
 };
-
-var test = makeStack(); //create a new object, with a prototype stackMethods, and native keys for length and storage
-test.pop();
