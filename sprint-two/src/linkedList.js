@@ -1,30 +1,27 @@
 var makeLinkedList = function(){
   var list = {};
+  list.storage =  {};
   list.head = null;
   list.tail = null;
 
   list.addToTail = function(value){
-    // list[list.tail] = value;
-    // list.tail = value; 
-    var node = makeNode(value);
-    if (list.head === null){
-      list.head = node;
-    }else{
-      list.tail.next = node.value;
+    var newNode = makeNode(value);
+    if(list.head === null && list.tail === null) { //if only 1 item in list
+      list.head = newNode;
+    } else {
+      list.tail.next = newNode;
     }
-    list[value] = node;
-    list.tail = node;
+    list.tail = newNode;
   };
 
   list.removeHead = function(){
-    if (list.head === list.tail){
-      list.head = null;
-    }
-
-
+    var result = list.head.value;
+    list.head = list.head.next;
+    return result;
   };
 
   list.contains = function(target){
+
   };
 
   return list;
@@ -39,11 +36,20 @@ var makeNode = function(value){
   return node;
 };
 
-var node1 =  makeNode(4);
-var list1 = makeLinkedList();
-list1.addToTail(node1);
 
- //{value: 4, next: null}
+
+
+
+var someList = makeLinkedList();
+someList.addToTail(4);
+someList.addToTail(6);
+someList.removeHead();
+someList.contains(6);
+
+
+
+
+
 
 /*
  * Complexity: What is the time complexity of the above functions?
