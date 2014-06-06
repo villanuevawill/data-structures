@@ -29,6 +29,12 @@ describe('hashTable', function() {
     expect(hashTable.retrieve('Steven')).to.equal(null);
   });
 
+  it('should not contain values that were overridden', function(){
+    hashTable.insert('Steven', 'Spielberg');
+    hashTable.insert('Steven', 'Seagal');
+    expect(hashTable.retrieve('Steven')).to.equal('Seagal');
+  });
+
   it('should handle hash function collisions', function(){
     var v1 = "val1";
     var v2 = "val2";
