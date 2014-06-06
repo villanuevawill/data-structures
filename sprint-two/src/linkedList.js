@@ -1,6 +1,5 @@
 var makeLinkedList = function(){
   var list = {};
-  list.storage =  {};
   list.head = null;
   list.tail = null;
 
@@ -22,10 +21,19 @@ var makeLinkedList = function(){
 
   list.contains = function(target){
     var found = false;
-    while (!found) {
-      //if node.value = target, set found= true;
-      //else if node.next = null, break;
+    /** NEW **/
+    var node = list.head; 
+    if (list.head !== null) {
+      while (!found) { 
+        if (node.value === target) {//if node.value = target, set found= true;
+          found = true;
+        } else if (node.next === null) { //else if node.next = null, break;
+          break;
+        }
+        node = node.next;
+      }
     }
+    /** END NEW **/ 
     return found;
   };
 
@@ -40,9 +48,6 @@ var makeNode = function(value){
 
   return node;
 };
-
-
-
 
 
 var someList = makeLinkedList();
