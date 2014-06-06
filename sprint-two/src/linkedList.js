@@ -6,7 +6,7 @@ var makeLinkedList = function(){
 
   list.addToTail = function(value){
     var newNode = makeNode(value);
-    if(list.head === null && list.tail === null) { //if only 1 item in list
+    if(list.head === null && list.tail === null) { //if no items in the list yet
       list.head = newNode;
     } else {
       list.tail.next = newNode;
@@ -21,7 +21,12 @@ var makeLinkedList = function(){
   };
 
   list.contains = function(target){
-
+    var found = false;
+    while (!found) {
+      //if node.value = target, set found= true;
+      //else if node.next = null, break;
+    }
+    return found;
   };
 
   return list;
