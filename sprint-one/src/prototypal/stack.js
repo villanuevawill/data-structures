@@ -24,3 +24,5 @@ var stackMethods = {
     return this._length;
   },
 };
+
+var newStack = makeStack();
