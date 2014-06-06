@@ -20,21 +20,15 @@ var makeLinkedList = function(){
   };
 
   list.contains = function(target){
-    var found = false;
-    /** NEW **/
-    var node = list.head; 
-    if (list.head !== null) {
-      while (!found) { 
-        if (node.value === target) {//if node.value = target, set found= true;
-          found = true;
-        } else if (node.next === null) { //else if node.next = null, break;
-          break;
-        }
+    var node = list.head;
+    while (node) {
+      if (node.value === target) {//if node.value = target, set found= true;
+        return true;
+      } else {
         node = node.next;
       }
     }
-    /** END NEW **/ 
-    return found;
+    return false;
   };
 
   return list;
