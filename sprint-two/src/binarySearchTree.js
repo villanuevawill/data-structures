@@ -8,7 +8,19 @@ var makeBinarySearchTree = function(value){
 };
 
 makeBinarySearchTree.prototype.insert = function(value){
-
+  if (value < this.value){
+    if (this.left){
+      this.left.insert(value);
+    }else {
+      this.left = makeBinarySearchTree(value);
+    }
+  }else if (value > this.value){
+    if (this.right){
+      this.right.insert(value);
+    }else {
+      this.right = makeBinarySearchTree(value);
+    }
+  }
 };
 
 makeBinarySearchTree.prototype.contains = function(target){
