@@ -69,6 +69,12 @@ Graph.prototype.removeEdge = function(fromNode, toNode){
 
 };
 
+Graph.prototype.forEachNode = function(func){
+  for (key in this._storage){
+    func(this._storage[key])
+  }
+}
+
 /*
  * Complexity: What is the time complexity of the above functions?
  */

@@ -5,7 +5,7 @@ describe('graph', function() {
     graph = new Graph();
   });
 
-  it('should have methods named "addNode", "contains", "removeNode", "addEdge", "getEdge", "removeEdge" and "forEachNode"', function() {
+it('should have methods named "addNode", "contains", "removeNode", "addEdge", "getEdge", "removeEdge" and "forEachNode"', function() {
     expect(graph.addNode).to.be.a("function");
     expect(graph.contains).to.be.a("function");
     expect(graph.removeNode).to.be.a("function");
@@ -25,6 +25,7 @@ describe('graph', function() {
     graph.removeNode('puppies');
     expect(graph.contains('puppies')).to.equal(false);
   });
+
 
   it('should automatically create an edge between two nodes if there is only one node in the graph', function() {
     graph.addNode('puppies');
@@ -56,5 +57,15 @@ describe('graph', function() {
     expect(graph.contains('hat')).to.equal(false);
     expect(graph.contains('jacket')).to.equal(false);
   });
+
+  it('should call a function on every node', function() {
+    graph.addNode('jacket');
+    graph.addNode('hat');
+    arrayCheck = [];
+    graph.forEachNode(function(item){
+    arrayCheck.push(item._value);
+    });
+    expect(arrayCheck[0]).to.equal('jacket');
+    });
 
 });
