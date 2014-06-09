@@ -58,8 +58,6 @@ Graph.prototype.addEdge = function(fromNode, toNode){
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
-  console.log(fromNode);
-  console.log(toNode);
   delete this._storage[fromNode]._edges[toNode];
   delete this._storage[toNode]._edges[fromNode];
   if (Object.keys(this._storage[fromNode]._edges).length === 0){
